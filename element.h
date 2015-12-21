@@ -16,9 +16,10 @@ public:
 	void Show_C();
 	void Show_R();
 	void Show_P();
-	/*double income_caculation(double L,double R,double P,double &income);
-	double expense_caculation(double L,double H,double C,double &expense);
-	double profit_caculation(double &profit);*/
+	void Show_Prof();
+	/*double income_caculation(double &income);
+	double expense_caculation(double &expense);*/
+	double profit_caculation();
 	
 	
 
@@ -39,6 +40,7 @@ public:
 	std::vector<double> vec_C;
 	std::vector<double> vec_R;
 	std::vector<double> vec_P;
+	std::vector<double> vec_Prof;
 	/*double LR //Leads per Month Rand;
 	double CR //Cost Per Lead Rand;
 	double RR // Conversion Rate Rand;

@@ -18,7 +18,7 @@ double Element::Leads_per_Month_Rand()
 	double LMin = L*0.8;
 	double LMax = L*1.2;
 	double rndf,LRand;
-	for (int i=0;i<500;i++){
+	for (int i=0;i<500000;i++){
 		rndf = (double)rand()/(RAND_MAX+1.0);
 		LRand = (LMax-LMin)*rndf+LMin;
 		vec_L.push_back(LRand);
@@ -41,7 +41,7 @@ double Element::Cost_per_Lead_Rand()
 	double CMin = C*0.8;
     double CMax = C*1.2;
     double rndf,CRand;
-    for (int i=0;i<500;i++){
+    for (int i=0;i<500000;i++){
         rndf = (double)rand()/(RAND_MAX+1.0);
         CRand = (CMax-CMin)*rndf+CMin;
         vec_C.push_back(CRand);
@@ -63,7 +63,7 @@ double Element::Conversion_Rate_Rand()
     double RMin = R*0.8;
     double RMax = R*1.2;
     double rndf,RRand;
-    for (int i=0;i<500;i++){
+    for (int i=0;i<500000;i++){
         rndf = (double)rand()/(RAND_MAX+1.0);
         RRand = (RMax-RMin)*rndf+RMin;
         vec_R.push_back(RRand);
@@ -86,7 +86,7 @@ double Element::Profit_per_Sale_Rand()
     double PMin = P*0.8;
     double PMax = P*1.2;
     double rndf,PRand;
-    for (int i=0;i<500;i++){
+    for (int i=0;i<500000;i++){
         rndf = (double)rand()/(RAND_MAX+1.0);
         PRand = (PMax-PMin)*rndf+PMin;
         vec_P.push_back(PRand);
@@ -106,21 +106,42 @@ void Element::Show_P()
 
 
 	
-/*double Element::income_caculation(double &income)
+/*double Element::income_caculation()
 {
-	income = ;
+	income = L*R*P;
 }
 
-double Element::expense_caculation(double L,double C,double &expense)
+double Element::expense_caculation()
 {
 	expense = ;
-}
-
-double ELement::profit_caculation(double &profit)
-{
-	profit = income-expense;
 }*/
 
+double Element::profit_caculation()
+{
+	std::vector<double>::iterator itl=vec_L.begin();
+	std::vector<double>::iterator itc=vec_C.begin();
+	std::vector<double>::iterator itr=vec_R.begin();
+	std::vector<double>::iterator itp=vec_P.begin();
+	for(int i =0;i<500000;i++){
+		double prof = (*itl)*(*itr)*(*itp)-(H+((*itl)*(*itc)));
+		vec_Prof.push_back(prof);
+		itl++;
+		itc++;
+		itr++;
+		itp++;
+	}
+	
+}
+void Element::Show_Prof()
+{
+	std::cout<<"These are the profit" <<std::endl;
+    for(std::vector<double>::iterator it = vec_Prof.begin();it!=vec_Prof.end();it++)
+    {
+            std::cout << *it << std::endl;
+
+    }
+    std::cout<<"***************The end************************" <<std::endl;
+}
 
 
 

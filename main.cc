@@ -19,13 +19,15 @@ int main()
 	cin >> Profit_per_Sale;
 	Element E(Lead_per_Month,Cost_per_Lead,Conversion_Rate,Profit_per_Sale,Overhead_per_Month);
     E.Leads_per_Month_Rand();
-	E.Show_L();
+//	E.Show_L();
 	E.Cost_per_Lead_Rand();
-	E.Show_C();
+//	E.Show_C();
 	E.Conversion_Rate_Rand();
-	E.Show_R();
+//	E.Show_R();
 	E.Profit_per_Sale_Rand();
-	E.Show_P();
+//	E.Show_P();
+	E.profit_caculation();
+	E.Show_Prof();
 }
 
 	
