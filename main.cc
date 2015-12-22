@@ -29,7 +29,7 @@ int main()
 //	E.Show_P();
 	E.profit_caculation();
 	E.Show_Prof();
-    TH1D *f1 = new TH1D("f1","f1",100,0,1000);
+    TH1D *f1 = new TH1D("f1","f1",250,-500,2000);
     for(std::vector<double>::iterator it = E.vec_Prof.begin();it!=E.vec_Prof.end();it++)
     f1->Fill(*it);
   
