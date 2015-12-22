@@ -1,10 +1,11 @@
 #include<iostream>
 #include<stdlib.h>
 #include"element.h"
-/*#include"TRandom.h"
-#include"TFile.h"
-#include"TTree.h"
-#include"TH1D."*/
+/*#include"TFile.h"
+#include"TTree.h"*/
+#include<vector>
+#include"TH1D.h"
+
 using namespace std;
 int main()
 {
@@ -28,6 +29,10 @@ int main()
 //	E.Show_P();
 	E.profit_caculation();
 	E.Show_Prof();
+    TH1D *f1 = new TH1D("f1","f1",100,0,1000);
+    for(std::vector<double>::iterator it = E.vec_Prof.begin();it!=E.vec_Prof.end();it++)
+    f1->Fill(*it);
+  
 }
 
 	
