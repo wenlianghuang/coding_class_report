@@ -25,7 +25,7 @@ void Element::Leads_per_Month_Rand()
 		LRand = (LMax-LMin)*rndf+LMin;
 		vec_L.push_back(LRand);
 		vec_LN.push_back(rnd.Gaus(L,(LMax-L)*0.5));
-		vec_LP.push_back(rnd.Gaus(L));
+		vec_LP.push_back(rnd.Poisson(L));
 	}
 }
 
@@ -50,7 +50,7 @@ void Element::Cost_per_Lead_Rand()
         CRand = (CMax-CMin)*rndf+CMin;
         vec_C.push_back(CRand);
 		vec_CN.push_back(rnd.Gaus(C,(CMax-C)*0.5));
-		vec_CP.push_back(rnd.Gaus(C));
+		vec_CP.push_back(rnd.Poisson(C));
     }
 }
 
@@ -74,7 +74,7 @@ void Element::Conversion_Rate_Rand()
         RRand = (RMax-RMin)*rndf+RMin;
         vec_R.push_back(RRand);
 		vec_RN.push_back(rnd.Gaus(R,(RMax-R)*0.5));
-		vec_RP.push_back(rnd.Gaus(R));
+		vec_RP.push_back(rnd.Poisson(R));
     }
 }
 
@@ -99,7 +99,7 @@ void Element::Profit_per_Sale_Rand()
         PRand = (PMax-PMin)*rndf+PMin;
         vec_P.push_back(PRand);
 		vec_PN.push_back(rnd.Gaus(P,(PMax-P)*0.5));
-		vec_PP.push_back(rnd.Gaus(P));
+		vec_PP.push_back(rnd.Poisson(P));
     }
 }
 
