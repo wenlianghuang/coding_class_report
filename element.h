@@ -6,11 +6,11 @@ class Element
 public:
 	Element(double Leads_per_Month,double Cost_Per_Lead,double Conversion_Rate,double Profit_per_Sale,double Overhead_per_Month);
 	
-	double Leads_per_Month_Rand();
+	void Leads_per_Month_Rand();
 	
-	double Cost_per_Lead_Rand();
-	double Conversion_Rate_Rand();
-	double Profit_per_Sale_Rand();
+	void Cost_per_Lead_Rand();
+	void Conversion_Rate_Rand();
+	void Profit_per_Sale_Rand();
 
     void Show_L();	
 	void Show_C();
@@ -19,7 +19,7 @@ public:
 	void Show_Prof();
 	/*double income_caculation(double &income);
 	double expense_caculation(double &expense);*/
-	double profit_caculation();
+	void profit_caculation();
 	
 	
 
@@ -41,6 +41,12 @@ public:
 	std::vector<double> vec_R;
 	std::vector<double> vec_P;
 	std::vector<double> vec_Prof;
+	//Normal distribution
+	std::vector<double> vec_LN;
+	std::vector<double> vec_CN;
+	std::vector<double> vec_RN;
+	std::vector<double> vec_PN;
+	std::vector<double> vec_ProfN;
 	/*double LR //Leads per Month Rand;
 	double CR //Cost Per Lead Rand;
 	double RR // Conversion Rate Rand;

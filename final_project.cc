@@ -5,11 +5,15 @@
 #include"TTree.h"*/
 #include<vector>
 #include"TH1D.h"
+#include"THStack.h"
+#include"TCanvas.h"
 
 using namespace std;
-int main()
+void final_project()
 {
 	double Lead_per_Month,Cost_per_Lead,Conversion_Rate,Profit_per_Sale,Overhead_per_Month = 800.0;
+	THStack *hs = new THStack("hs","");
+	
 	cout << "Input Lead per Month: ";
 	cin >>Lead_per_Month;
 	cout << "Input Cost per Lead: ";
@@ -29,10 +33,23 @@ int main()
 //	E.Show_P();
 	E.profit_caculation();
 	E.Show_Prof();
+
     TH1D *f1 = new TH1D("f1","f1",250,-500,2000);
     for(std::vector<double>::iterator it = E.vec_Prof.begin();it!=E.vec_Prof.end();it++)
     f1->Fill(*it);
-  
+	f1->SetFillColor(kBlue);
+    hs->Add(f1);
+	TH1D *f2 = new TH1D("f2","f2",250,-500,2000);
+	for(std::vector<double>::iterator it2 = E.vec_ProfN.begin();it2!=E.vec_ProfN.end();it2++)
+  	f2->Fill(*it2);
+	f2->SetFillColor(kGreen);
+    hs->Add(f2);
+	TCanvas *cs = new TCanvas("cs","cs",700,900);
+	cs->Divide(2,2);
+	cs->cd(1); hs->Draw();
+	cs->cd(3); f1->Draw();
+	cs->cd(4); f2->Draw();
+	
 }
 
 	
