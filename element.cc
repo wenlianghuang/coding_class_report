@@ -25,6 +25,7 @@ void Element::Leads_per_Month_Rand()
 		LRand = (LMax-LMin)*rndf+LMin;
 		vec_L.push_back(LRand);
 		vec_LN.push_back(rnd.Gaus(L,(LMax-L)*0.5));
+		vec_LP.push_back(rnd.Gaus(L));
 	}
 }
 
@@ -49,6 +50,7 @@ void Element::Cost_per_Lead_Rand()
         CRand = (CMax-CMin)*rndf+CMin;
         vec_C.push_back(CRand);
 		vec_CN.push_back(rnd.Gaus(C,(CMax-C)*0.5));
+		vec_CP.push_back(rnd.Gaus(C));
     }
 }
 
@@ -72,6 +74,7 @@ void Element::Conversion_Rate_Rand()
         RRand = (RMax-RMin)*rndf+RMin;
         vec_R.push_back(RRand);
 		vec_RN.push_back(rnd.Gaus(R,(RMax-R)*0.5));
+		vec_RP.push_back(rnd.Gaus(R));
     }
 }
 
@@ -96,6 +99,7 @@ void Element::Profit_per_Sale_Rand()
         PRand = (PMax-PMin)*rndf+PMin;
         vec_P.push_back(PRand);
 		vec_PN.push_back(rnd.Gaus(P,(PMax-P)*0.5));
+		vec_PP.push_back(rnd.Gaus(P));
     }
 }
 
@@ -120,6 +124,10 @@ void Element::profit_caculation()
 	std::vector<double>::iterator itcn=vec_CN.begin();
 	std::vector<double>::iterator itrn=vec_RN.begin();
 	std::vector<double>::iterator itpn=vec_PN.begin();
+	std::vector<double>::iterator itlp=vec_LP.begin();
+	std::vector<double>::iterator itcp=vec_CP.begin();
+	std::vector<double>::iterator itrp=vec_RP.begin();
+	std::vector<double>::iterator itpp=vec_PP.begin();
 	for(int i =0;i<50000;i++){
 		double prof = (*itl)*(*itr)*(*itp)-(H+((*itl)*(*itc)));
 		vec_Prof.push_back(prof);
@@ -133,7 +141,12 @@ void Element::profit_caculation()
 		itcn++;
 		itrn++;
 		itpn++;
-
+		double profP = (*itlp)*(*itrp)*(*itpp)-(H+((*itlp)*(*itcp)));
+		vec_ProfP.push_back(profP);
+		itlp++;
+		itcp++;
+		itrp++;
+		itpp++;
 	}
 	
 }

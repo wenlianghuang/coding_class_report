@@ -44,11 +44,17 @@ void final_project()
   	f2->Fill(*it2);
 	f2->SetFillColor(kGreen);
     hs->Add(f2);
+	TH1D *f3 = new TH1D("f3","f3",250,-500,2000);
+	for(std::vector<double>::iterator it3 = E.vec_ProfP.begin();it3!=E.vec_ProfP.end();it3++)
+	f3->Fill(*it3);
+	f3->SetFillColor(6);
+	hs->Add(f3);
 	TCanvas *cs = new TCanvas("cs","cs",700,900);
 	cs->Divide(2,2);
 	cs->cd(1); hs->Draw();
-	cs->cd(3); f1->Draw();
-	cs->cd(4); f2->Draw();
+	cs->cd(2); f1->Draw();
+	cs->cd(3); f2->Draw();
+	cs->cd(4); f3->Draw();
 	
 }
 

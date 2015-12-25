@@ -21,35 +21,29 @@ public:
 	double expense_caculation(double &expense);*/
 	void profit_caculation();
 	
-	
-
-
-
-
-
-
-
-
-
 	double L;//Leads Per Month
     double C;//Cost Per Lead
     double R; //Conversion Rate
     double P; //Profit per Sale
     double H; //Overhead per Month
+	
 	std::vector<double> vec_L;
 	std::vector<double> vec_C;
 	std::vector<double> vec_R;
 	std::vector<double> vec_P;
 	std::vector<double> vec_Prof;
-	//Normal distribution
+	//Gaussian distribution
 	std::vector<double> vec_LN;
 	std::vector<double> vec_CN;
 	std::vector<double> vec_RN;
 	std::vector<double> vec_PN;
 	std::vector<double> vec_ProfN;
-	/*double LR //Leads per Month Rand;
-	double CR //Cost Per Lead Rand;
-	double RR // Conversion Rate Rand;
-	double PR //Profit per Sale Rand;*/
+	//Poisson distribution
+	std::vector<double> vec_LP;
+	std::vector<double> vec_CP;
+	std::vector<double> vec_RP;
+	std::vector<double> vec_PP;
+	std::vector<double> vec_ProfP;
+	
 };
 #endif
