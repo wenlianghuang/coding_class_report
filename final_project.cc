@@ -33,28 +33,34 @@ void final_project()
 //	E.Show_P();
 	E.profit_caculation();
 	E.Show_Prof();
-
-    TH1D *f1 = new TH1D("f1","f1",250,-500,2000);
+	E.no_distribution_sort();
+	E.Gaus_distribution_sort();
+	E.Landau_distribution_sort();
+	int n_bin = (*(E.itsma)-E.vitsmi)/10.0;
+	int g_bin = (*(E.itsnma)-E.vitsnmi)/10.0;
+	int l_bin = (*(E.itslma)-E.vitslmi)/10.0;
+	cout << n_bin <<endl;
+    TH1D *f1 = new TH1D("f1","f1",n_bin,(E.vitsmi),*(E.itsma));
     for(std::vector<double>::iterator it = E.vec_Prof.begin();it!=E.vec_Prof.end();it++)
     f1->Fill(*it);
 	f1->SetFillColor(kBlue);
-    hs->Add(f1);
-	TH1D *f2 = new TH1D("f2","f2",250,-500,2000);
+    //hs->Add(f1);
+	TH1D *f2 = new TH1D("f2","f2",g_bin,(E.vitsnmi),*(E.itsnma));
 	for(std::vector<double>::iterator it2 = E.vec_ProfN.begin();it2!=E.vec_ProfN.end();it2++)
   	f2->Fill(*it2);
 	f2->SetFillColor(kGreen);
-    hs->Add(f2);
-	TH1D *f3 = new TH1D("f3","f3",250,-500,2000);
+    //hs->Add(f2);
+	TH1D *f3 = new TH1D("f3","f3",250,(E.vitslmi),*(E.itslma));
 	for(std::vector<double>::iterator it3 = E.vec_ProfP.begin();it3!=E.vec_ProfP.end();it3++)
 	f3->Fill(*it3);
 	f3->SetFillColor(6);
-	hs->Add(f3);
+	//hs->Add(f3);
 	TCanvas *cs = new TCanvas("cs","cs",700,900);
 	cs->Divide(2,2);
-	cs->cd(1); hs->Draw();
-	cs->cd(2); f1->Draw();
-	cs->cd(3); f2->Draw();
-	cs->cd(4); f3->Draw();
+	//cs->cd(1); hs->Draw();
+	cs->cd(1); f1->Draw();
+	cs->cd(2); f2->Draw();
+	cs->cd(3); f3->Draw();
 	
 }
 

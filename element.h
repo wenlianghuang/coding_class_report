@@ -20,7 +20,14 @@ public:
 	/*double income_caculation(double &income);
 	double expense_caculation(double &expense);*/
 	void profit_caculation();
-	
+ 	//by sorting function to get the minimun and maximun value
+	//void Sorting_no_distribution();
+	/*void Sorting_Gasu_distribution();
+	void Sorting_Landau_distribution();*/
+    void no_distribution_sort();
+	void Gaus_distribution_sort();
+	void Landau_distribution_sort();
+//	void sort();	
 	double L;//Leads Per Month
     double C;//Cost Per Lead
     double R; //Conversion Rate
@@ -44,6 +51,20 @@ public:
 	std::vector<double> vec_RP;
 	std::vector<double> vec_PP;
 	std::vector<double> vec_ProfP;
+	//Sorting function parameter 
+	std::vector<double>::iterator itsma;
+	std::vector<double>::iterator itsmi;
+	double vitsmi;//variable of itsmi
+	std::vector<double>::iterator itsnma;
+	std::vector<double>::iterator itsnmi;
+	double vitsnmi;
+	std::vector<double>::iterator itslma;
+	std::vector<double>::iterator itslmi;
+	double vitslmi;
+	/*std::vector<double> itsnma;
+	std::vector<double> istnmi;
+	std::vector<double> itspma;
+	std::vector<double> itspmi;*/
 	
 };
 #endif

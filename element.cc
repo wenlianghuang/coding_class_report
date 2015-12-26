@@ -4,6 +4,7 @@
 #include"element.h"
 #include<vector>
 #include<TRandom3.h>
+#include<algorithm>
 
 TRandom3 rnd(1234);
 
@@ -25,7 +26,7 @@ void Element::Leads_per_Month_Rand()
 		LRand = (LMax-LMin)*rndf+LMin;
 		vec_L.push_back(LRand);
 		vec_LN.push_back(rnd.Gaus(L,(LMax-L)*0.5));
-		vec_LP.push_back(rnd.Poisson(L));
+		vec_LP.push_back(rnd.Landau(L));
 	}
 }
 
@@ -50,7 +51,7 @@ void Element::Cost_per_Lead_Rand()
         CRand = (CMax-CMin)*rndf+CMin;
         vec_C.push_back(CRand);
 		vec_CN.push_back(rnd.Gaus(C,(CMax-C)*0.5));
-		vec_CP.push_back(rnd.Poisson(C));
+		vec_CP.push_back(rnd.Landau(C));
     }
 }
 
@@ -74,7 +75,7 @@ void Element::Conversion_Rate_Rand()
         RRand = (RMax-RMin)*rndf+RMin;
         vec_R.push_back(RRand);
 		vec_RN.push_back(rnd.Gaus(R,(RMax-R)*0.5));
-		vec_RP.push_back(rnd.Poisson(R));
+		vec_RP.push_back(rnd.Landau(R));
     }
 }
 
@@ -99,7 +100,7 @@ void Element::Profit_per_Sale_Rand()
         PRand = (PMax-PMin)*rndf+PMin;
         vec_P.push_back(PRand);
 		vec_PN.push_back(rnd.Gaus(P,(PMax-P)*0.5));
-		vec_PP.push_back(rnd.Poisson(P));
+		vec_PP.push_back(rnd.Landau(P));
     }
 }
 
@@ -150,6 +151,30 @@ void Element::profit_caculation()
 	}
 	
 }
+void Element::no_distribution_sort()
+{
+	sort(vec_Prof.begin(),vec_Prof.end());
+	itsmi = vec_Prof.begin();
+	vitsmi = *(itsmi);
+	reverse(vec_Prof.begin(),vec_Prof.end());
+	itsma = vec_Prof.begin();
+}
+void Element::Gaus_distribution_sort()
+{
+	sort(vec_ProfN.begin(),vec_ProfN.end());
+	itsnmi = vec_ProfN.begin();
+	vitsnmi = *(itsnmi);
+	reverse(vec_ProfN.begin(),vec_ProfN.end());
+	itsnma = vec_ProfN.begin();
+}
+void Element::Landau_distribution_sort()
+{
+	sort(vec_ProfP.begin(),vec_ProfP.end());
+	itslmi = vec_ProfP.begin();
+	vitslmi = *(itslmi);
+	reverse(vec_ProfP.begin(),vec_ProfP.end());
+	itslma = vec_ProfP.begin();
+}	
 void Element::Show_Prof()
 {
 	std::cout<<"These are the profit" <<std::endl;
