@@ -78,7 +78,7 @@ void Element::Conversion_Rate_Rand()
         vec_R.push_back(RRand);
         vec_RU.push_back(rnd.Uniform(RMin,RMax));
 		vec_RN.push_back(rnd.Gaus(R,(RMax-R)*0.5));
-		//vec_RP.push_back(rnd.Landau(R,(RMax-RMin)*0.5));
+		vec_RP.push_back(rnd.Landau(R,(RMax-RMin)*0.5));
         //vec_RE.push_back(rnd.Exp(1)*R);
     }
 }
@@ -134,10 +134,7 @@ void Element::profit_caculation()
 	std::vector<double>::iterator itcn=vec_CN.begin();
 	std::vector<double>::iterator itrn=vec_RN.begin();
 	std::vector<double>::iterator itpn=vec_PN.begin();
-	std::vector<double>::iterator itlp=vec_LP.begin();
-	std::vector<double>::iterator itcp=vec_CP.begin();
 	std::vector<double>::iterator itrp=vec_RP.begin();
-	std::vector<double>::iterator itpp=vec_PP.begin();
     //std::vector<double>::iterator itre=vec_RE.begin();
 	for(int i =0;i<50000;i++){
 		double prof = (*itl)*(*itr)*(*itp)-(H+((*itl)*(*itc)));
@@ -160,14 +157,8 @@ void Element::profit_caculation()
 		itpn++;
 		double profP = (*itl)*(*itrp)*(*itp)-(H+((*itl)*(*itc)));
 		vec_ProfP.push_back(profP);
-		itlp++;
-		itcp++;
 		itrp++;
-		itpp++;
-        /*double profE = (*itl)*(*itre)*(*itp)-(H+((*itl)*(*itc)));
-        vec_ProfE.push_back(profE);
-        itre++;*/
-	}
+    }
 	
 }
 void Element::no_distribution_sort()
@@ -230,4 +221,4 @@ void Element::Show_Prof()
 
 
 
-
+//

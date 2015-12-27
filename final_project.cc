@@ -39,6 +39,7 @@ void final_project()
     cout << "flag3" <<endl;
 
     E.Uniform_distribution_sort();
+    cout<< "flag4" <<endl;
 	E.Gaus_distribution_sort();
 	E.Landau_distribution_sort();
     //E.Exp_distribution_sort();
@@ -46,7 +47,7 @@ void final_project()
 	int g_bin = (*(E.itsnma)-E.vitsnmi)/10.0;
 	int l_bin = (*(E.itslma)-E.vitslmi)/10.0;
         //int e_bin = (*(E.itsema)-E.vitsemi)/10.0;
-    //int u_bin = (*(E.itsuma)-E.vitsumi)/10.0;
+    int u_bin = (*(E.itsuma)-E.vitsumi)/10.0;
     TH1D *f1 = new TH1D("f1","f1",n_bin,(E.vitsmi),*(E.itsma));
     for(std::vector<double>::iterator it = E.vec_Prof.begin();it!=E.vec_Prof.end();it++)
     f1->Fill(*it);
