@@ -16,24 +16,22 @@ public:
 	void Show_R();
 	void Show_P();
 	void Show_Prof();
-	/*double income_caculation(double &income);
-	double expense_caculation(double &expense);*/
+	
 	void profit_caculation();
  	//by sorting function to get the minimun and maximun value
-	//void Sorting_no_distribution();
-	/*void Sorting_Gasu_distribution();
-	void Sorting_Landau_distribution();*/
     void no_distribution_sort();
     void Uniform_distribution_sort();
 	void Gaus_distribution_sort();
 	void Landau_distribution_sort();
-	//void Exp_distribution_sort();
+	void Exp_distribution_sort();
+	
 	double L;//Leads Per Month
     double C;//Cost Per Lead
     double R; //Conversion Rate
     double P; //Profit per Sale
     double H; //Overhead per Month
 	
+	//no_distribution
 	std::vector<double> vec_L;
 	std::vector<double> vec_C;
 	std::vector<double> vec_R;
@@ -58,8 +56,8 @@ public:
 	std::vector<double> vec_PP;
 	std::vector<double> vec_ProfP;
     //Exp distribution
-    /*std::vector<double> vec_RE;
-    std::vector<double> vec_ProfE;*/ 
+    std::vector<double> vec_RE;
+    std::vector<double> vec_ProfE; 
 	//Sorting function parameter 
 	std::vector<double>::iterator itsma;
 	std::vector<double>::iterator itsmi;
@@ -73,9 +71,9 @@ public:
 	std::vector<double>::iterator itslma;
 	std::vector<double>::iterator itslmi;
 	double vitslmi;
-    /*std::vector<double>::iterator itsema;
+    std::vector<double>::iterator itsema;
     std::vector<double>::iterator itsemi;
-    double vitsemi;*/
+    double vitsemi;
 	/*std::vector<double> itsnma;
 	std::vector<double> istnmi;
 	std::vector<double> itspma;

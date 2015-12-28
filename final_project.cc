@@ -29,20 +29,21 @@ void final_project()
 //	E.Show_R();
 	E.Profit_per_Sale_Rand();
 //	E.Show_P();
-    cout << "flag1" <<endl;
+    //cout << "flag1" <<endl;
 
 	E.profit_caculation();
 	E.Show_Prof();
-    cout << "flag2" <<endl;
+    //cout << "flag2" <<endl;
 
 	E.no_distribution_sort();
-    cout << "flag3" <<endl;
+    //cout << "flag3" <<endl;
 
     E.Uniform_distribution_sort();
-    cout<< "flag4" <<endl;
+    //cout<< "flag4" <<endl;
 	E.Gaus_distribution_sort();
 	E.Landau_distribution_sort();
-    //E.Exp_distribution_sort();
+    E.Exp_distribution_sort();
+	cout<<"flag5"<<endl;
 	int n_bin = (*(E.itsma)-E.vitsmi)/10.0;
 	int g_bin = (*(E.itsnma)-E.vitsnmi)/10.0;
 	int l_bin = (*(E.itslma)-E.vitslmi)/10.0;
@@ -62,22 +63,24 @@ void final_project()
 	for(std::vector<double>::iterator it3 = E.vec_ProfP.begin();it3!=E.vec_ProfP.end();it3++)
 	f3->Fill(*it3);
 	f3->SetFillColor(6);
-    /*TH1D *f4 = new TH1D("f4","f4",500,(E.vitsemi),*(E.itsema));
+    TH1D *f4 = new TH1D("f4","f4",500,(E.vitsemi),*(E.itsema));
     for(std::vector<double>::iterator it4 = E.vec_ProfE.begin();it4!=E.vec_ProfE.end();it4++)
     f4->Fill(*it4);
-    f4->SetFillColor(29);*/
+    f4->SetFillColor(29);
 	//hs->Add(f3);
     TH1D *f5 = new TH1D("f5","f5",500,(E.vitsumi),*(E.itsuma));
     for(std::vector<double>::iterator it5 = E.vec_ProfU.begin();it5!=E.vec_ProfU.end();it5++)
     f5->Fill(*it5);
     f5->SetFillColor(29);
 	TCanvas *cs = new TCanvas("cs","cs",700,900);
-	cs->Divide(2,2);
+	cs->Divide(3,2);
 	//cs->cd(1); hs->Draw();
 	cs->cd(1); f1->Draw();
 	cs->cd(2); f2->Draw();
 	cs->cd(3); f3->Draw();
-    cs->cd(4); f5->Draw();	
+    cs->cd(4); f4->Draw();
+	cs->cd(5); f5->Draw();	
+	//cs->cd(6); hs->Draw();
 }
 
 	
