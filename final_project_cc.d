@@ -1,7 +1,8 @@
 
 # DO NOT DELETE
 
-./final_project_cc.so: element.h /home/wenliang/root/include/TH1D.h
+./final_project_cc.so: element.h element_advance.h
+./final_project_cc.so: /home/wenliang/root/include/TH1D.h
 ./final_project_cc.so: /home/wenliang/root/include/TH1.h
 ./final_project_cc.so: /home/wenliang/root/include/TAxis.h
 ./final_project_cc.so: /home/wenliang/root/include/TNamed.h
@@ -51,5 +52,6 @@
 ./final_project_cc.so: /home/wenliang/root/include/TQObject.h
 ./final_project_cc.so: /home/wenliang/root/include/TAttCanvas.h
 ./final_project_cc.so: /home/wenliang/root/include/TCanvasImp.h
+./final_project_cc.so: /home/wenliang/root/include/TGraph.h
 ./final_project_cc.so: /home/wenliang/root/include/cintdictversion.h /home/wenliang/root/include/RVersion.h
 final_project_cc__ROOTBUILDVERSION= 5.34/10

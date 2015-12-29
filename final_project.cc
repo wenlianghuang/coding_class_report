@@ -1,10 +1,12 @@
 #include<iostream>
 #include<stdlib.h>
 #include"element.h"
+#include"element_advance.h"
 #include<vector>
 #include"TH1D.h"
 #include"THStack.h"
 #include"TCanvas.h"
+#include"TGraph.h"
 
 using namespace std;
 void final_project()
@@ -21,7 +23,10 @@ void final_project()
 	cout << "Input Profit per Sale: ";
 	cin >> Profit_per_Sale;
 	Element E(Lead_per_Month,Cost_per_Lead,Conversion_Rate,Profit_per_Sale,Overhead_per_Month);
-    E.Leads_per_Month_Rand();
+    
+	Element_advance EA(Lead_per_Month,Cost_per_Lead,Conversion_Rate,Profit_per_Sale,Overhead_per_Month);
+	
+	E.Leads_per_Month_Rand();
 //	E.Show_L();
 	E.Cost_per_Lead_Rand();
 //	E.Show_C();
@@ -32,7 +37,7 @@ void final_project()
     //cout << "flag1" <<endl;
 
 	E.profit_caculation();
-	E.Show_Prof();
+	//E.Show_Prof();
     //cout << "flag2" <<endl;
 
 	E.no_distribution_sort();
@@ -43,7 +48,8 @@ void final_project()
 	E.Gaus_distribution_sort();
 	E.Landau_distribution_sort();
     E.Exp_distribution_sort();
-	cout<<"flag5"<<endl;
+	EA.Buying_People_Decay();
+	//cout<<"flag5"<<endl;
 	int n_bin = (*(E.itsma)-E.vitsmi)/10.0;
 	int g_bin = (*(E.itsnma)-E.vitsnmi)/10.0;
 	int l_bin = (*(E.itslma)-E.vitslmi)/10.0;
@@ -81,6 +87,24 @@ void final_project()
     cs->cd(4); f4->Draw();
 	cs->cd(5); f5->Draw();	
 	//cs->cd(6); hs->Draw();
+	//*declare for TGraph parameter
+	double day[6] = {1.,7.,13.,19.,25.,31.};
+	double nbpa[6];
+	std::vector<double>::iterator itnbp=EA.nbp.begin();
+	cout << "flag6" <<endl;
+	cout << *(itnbp)<<endl;
+	for(int i = 0;i<6;i++){
+		nbpa[i] = *(itnbp);
+		cout << "Loop_flag-" <<i<<endl;
+		itnbp++;
+	}
+	cout << "flag7" <<endl;
+	TGraph *g1 = new TGraph(6,day,nbpa);
+	g1->SetMarkerColor(kRed);
+	g1->SetMarkerStyle(20);
+	TCanvas *cs2 = new TCanvas("cs2","cs2",700,900);
+	cs2->Divide(2,1);
+	cs2->cd(1); g1->Draw("AP");
 }
 
 	
