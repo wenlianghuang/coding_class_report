@@ -16,7 +16,9 @@ public:
 	void Show_R();
 	void Show_P();
 	void Show_Prof();
-	
+	void Show_ProfD0();
+    void Show_ProfD1();
+		
 	void profit_caculation();
  	//by sorting function to get the minimun and maximun value
     void no_distribution_sort();
@@ -78,6 +80,36 @@ public:
 	std::vector<double> istnmi;
 	std::vector<double> itspma;
 	std::vector<double> itspmi;*/
+
+	void Buying_People_Decay_each_region();
+
+    //double nbpder;//number of buying people decay for each region
+    std::vector<double> nbpder_Prof1;//profit of region 1
+    std::vector<double> nbpder_Prof2;
+    std::vector<double> nbpder_Prof3;
+    std::vector<double> nbpder_Prof4;
+    std::vector<double> nbpder_Prof5;
+    std::vector<double> nbpder_Prof0;
+
+	void BPD_sorting();
+    std::vector<double>::iterator itbpdsma0;
+    std::vector<double>::iterator itbpdsmi0;
+    double vitsbpdmi0;
+    std::vector<double>::iterator itbpdsma1;
+    std::vector<double>::iterator itbpdsmi1;
+    double vitsbpdmi1;
+    std::vector<double>::iterator itbpdsma2;
+    std::vector<double>::iterator itbpdsmi2;
+    double vitsbpdmi2;
+    std::vector<double>::iterator itbpdsma3;
+    std::vector<double>::iterator itbpdsmi3;
+    double vitsbpdmi3;
+    std::vector<double>::iterator itbpdsma4;
+    std::vector<double>::iterator itbpdsmi4;
+    double vitsbpdmi4;
+    std::vector<double>::iterator itbpdsma5;
+    std::vector<double>::iterator itbpdsmi5;
+    double vitsbpdmi5;
 	
 };
 #endif

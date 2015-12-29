@@ -5,7 +5,8 @@
 #include<vector>
 #include<TRandom3.h>
 #include<algorithm>
-
+#define sdup 0.05
+#include<math.h>
 TRandom3 rnd(1234);
 
 Element::Element(double Leads_per_Month,double Cost_per_Lead,double Conversion_Rate,double Profit_per_Sale,double Overhead_per_Month)
@@ -136,6 +137,7 @@ void Element::profit_caculation()
 	std::vector<double>::iterator itpn=vec_PN.begin();
 	std::vector<double>::iterator itrp=vec_RP.begin();
     std::vector<double>::iterator itre=vec_RE.begin();
+	std::cout<<(*itl)<<std::endl;
 	for(int i =0;i<50000;i++){
 		double prof = (*itl)*(*itr)*(*itp)-(H+((*itl)*(*itc)));
 		vec_Prof.push_back(prof);
@@ -222,6 +224,98 @@ void Element::Show_Prof()
     std::cout<<"***************The end************************" <<std::endl;
 }
 
+void Element::Buying_People_Decay_each_region()
+{
+    std::vector<double>::iterator itln = vec_LN.begin();
+    std::vector<double>::iterator itcn = vec_CN.begin();
+    std::vector<double>::iterator itrn = vec_RN.begin();
+    std::vector<double>::iterator itpn = vec_PN.begin();
+    double temp[6];
+	double profBPD;
+    for(int i=0;i<50000;i++)
+    {
+        double nbpder = (*itln)*(*itrn);
+		double nbpvar;
+        for(int j =0;j<6;j++)
+        {
+            nbpder = nbpder*pow(1.2,-j)-1000;
+            profBPD = (nbpder*(*itpn))-(H+(*itln)*(*itcn));
+            temp[j] = profBPD;
+            //temp++;
+        }
+		nbpder_Prof0.push_back(temp[0]);
+        nbpder_Prof1.push_back(temp[1]);
+        nbpder_Prof2.push_back(temp[2]);
+        nbpder_Prof3.push_back(temp[3]);
+        nbpder_Prof4.push_back(temp[4]);
+        nbpder_Prof5.push_back(temp[5]);
 
+        itln++;
+        itcn++;
+        itrn++;
+        itpn++;
+}
+}
+
+void Element::BPD_sorting()
+{
+    sort(nbpder_Prof0.begin(),nbpder_Prof0.end());
+    itbpdsmi0 = nbpder_Prof0.begin();
+    vitsbpdmi0 = *(itbpdsmi0);
+    reverse(nbpder_Prof0.begin(),nbpder_Prof0.end());
+    itbpdsma0 = nbpder_Prof0.begin();
+
+    sort(nbpder_Prof1.begin(),nbpder_Prof1.end());
+    itbpdsmi1 = nbpder_Prof1.begin();
+    vitsbpdmi1 = *(itbpdsmi1);
+    reverse(nbpder_Prof1.begin(),nbpder_Prof1.end());
+    itbpdsma1 = nbpder_Prof1.begin();
+
+    sort(nbpder_Prof2.begin(),nbpder_Prof2.end());
+    itbpdsmi2 = nbpder_Prof2.begin();
+    vitsbpdmi2 = *(itbpdsmi2);
+    reverse(nbpder_Prof2.begin(),nbpder_Prof2.end());
+    itbpdsma2 = nbpder_Prof2.begin();
+
+    sort(nbpder_Prof3.begin(),nbpder_Prof3.end());
+    itbpdsmi3 = nbpder_Prof3.begin();
+    vitsbpdmi3 = *(itbpdsmi3);
+	reverse(nbpder_Prof3.begin(),nbpder_Prof3.end());
+    itbpdsma3 = nbpder_Prof3.begin();
+
+    sort(nbpder_Prof4.begin(),nbpder_Prof4.end());
+    itbpdsmi4 = nbpder_Prof4.begin();
+    vitsbpdmi4 = *(itbpdsmi4);
+    reverse(nbpder_Prof4.begin(),nbpder_Prof4.end());
+    itbpdsma4 = nbpder_Prof4.begin();
+
+    sort(nbpder_Prof5.begin(),nbpder_Prof5.end());
+    itbpdsmi5 = nbpder_Prof5.begin();
+    vitsbpdmi5 = *(itbpdsmi5);
+    reverse(nbpder_Prof5.begin(),nbpder_Prof5.end());
+    itbpdsma5 = nbpder_Prof5.begin();
+}
+
+void Element::Show_ProfD0()
+{
+    std::cout<<"These are the profit" <<std::endl;
+    for(std::vector<double>::iterator it = nbpder_Prof0.begin();it!=nbpder_Prof0.end();it++)
+    {
+            std::cout << *it << std::endl;
+
+    }
+    std::cout<<"***************The end************************" <<std::endl;
+}
+
+void Element::Show_ProfD1()
+{
+    std::cout<<"These are the profit" <<std::endl;
+    for(std::vector<double>::iterator it = nbpder_Prof1.begin();it!=nbpder_Prof1.end();it++)
+    {
+            std::cout << *it << std::endl;
+
+    }
+    std::cout<<"***************The end************************" <<std::endl;
+}
 
 //
