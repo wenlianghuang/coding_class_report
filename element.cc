@@ -238,7 +238,7 @@ void Element::Buying_People_Decay_each_region()
 		double nbpvar;
         for(int j =0;j<6;j++)
         {
-            nbpder = nbpder*pow(1.2,-j)-1000;
+            nbpder = nbpder*pow(1.2,-j)+100;
             profBPD = (nbpder*(*itpn))-(H+(*itln)*(*itcn));
             temp[j] = profBPD;
             //temp++;

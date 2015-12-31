@@ -50,21 +50,21 @@ void final_project()
 	E.BPD_sorting();
 	E.Show_ProfD0();
 	E.Show_ProfD1();
-	int n_bin = (*(E.itsma)-E.vitsmi)/10.0;
-	int g_bin = (*(E.itsnma)-E.vitsnmi)/10.0;
-	int l_bin = (*(E.itslma)-E.vitslmi)/10.0;
-    int u_bin = (*(E.itsuma)-E.vitsumi)/10.0;
+	int n_bin = (*(E.itsma)-E.vitsmi)/200.0;
+	int g_bin = (*(E.itsnma)-E.vitsnmi)/200.0;
+	int l_bin = (*(E.itslma)-E.vitslmi)/200.0;
+    int u_bin = (*(E.itsuma)-E.vitsumi)/200.0;
     TH1D *f1 = new TH1D("f1","f1",n_bin,(E.vitsmi),*(E.itsma));
     for(std::vector<double>::iterator it = E.vec_Prof.begin();it!=E.vec_Prof.end();it++)
     f1->Fill(*it);
-	f1->SetFillColor(kBlue);
+	f1->SetFillColor(28);
     //hs->Add(f1);
 	TH1D *f2 = new TH1D("f2","f2",g_bin,(E.vitsnmi),*(E.itsnma));
 	for(std::vector<double>::iterator it2 = E.vec_ProfN.begin();it2!=E.vec_ProfN.end();it2++)
   	f2->Fill(*it2);
 	f2->SetFillColor(kGreen);
     //hs->Add(f2);
-	TH1D *f3 = new TH1D("f3","f3",500,(E.vitslmi),10000);
+	TH1D *f3 = new TH1D("f3","f3",500,(E.vitslmi),80000);
 	for(std::vector<double>::iterator it3 = E.vec_ProfP.begin();it3!=E.vec_ProfP.end();it3++)
 	f3->Fill(*it3);
 	f3->SetFillColor(6);
@@ -97,12 +97,12 @@ void final_project()
 	}
 	//cs2 of the graph
 	THStack *hs2 = new THStack("hs2","");
-	int bpd0_bin = (*(E.itbpdsma0)-(E.vitsbpdmi0))/10.0;
-	int bpd1_bin = (*(E.itbpdsma1)-(E.vitsbpdmi1))/10.0;
-    int bpd2_bin = (*(E.itbpdsma2)-(E.vitsbpdmi2))/10.0;
-	int bpd3_bin = (*(E.itbpdsma3)-(E.vitsbpdmi3))/10.0;
-	int bpd4_bin = (*(E.itbpdsma4)-(E.vitsbpdmi4))/10.0;
-	int bpd5_bin = (*(E.itbpdsma5)-(E.vitsbpdmi5))/10.0;	
+	int bpd0_bin = (*(E.itbpdsma0)-(E.vitsbpdmi0))/200.0;
+	int bpd1_bin = (*(E.itbpdsma1)-(E.vitsbpdmi1))/200.0;
+    int bpd2_bin = (*(E.itbpdsma2)-(E.vitsbpdmi2))/200.0;
+	int bpd3_bin = (*(E.itbpdsma3)-(E.vitsbpdmi3))/200.0;
+	int bpd4_bin = (*(E.itbpdsma4)-(E.vitsbpdmi4))/200.0;
+	int bpd5_bin = (*(E.itbpdsma5)-(E.vitsbpdmi5))/200.0;	
 	
 	TGraph *g1 = new TGraph(6,day,nbpa);
 	g1->SetMarkerColor(kRed);
