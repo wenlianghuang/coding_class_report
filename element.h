@@ -110,6 +110,23 @@ public:
     std::vector<double>::iterator itbpdsma5;
     std::vector<double>::iterator itbpdsmi5;
     double vitsbpdmi5;
+
+	//To exame the GA alogrithm
+	std::vector<double>::iterator itlugami;
+	std::vector<double>::iterator itlugama;
+	std::vector<double>::iterator itcugami;
+	std::vector<double>::iterator itcugama;
+	std::vector<double>::iterator itrugami;
+	std::vector<double>::iterator itrugama;
+	std::vector<double>::iterator itpugami;
+	std::vector<double>::iterator itpugama;
+	void Sort_for_Uniform_distribution_Rand();
+	double vitlugami,vitlugama;
+	double vitcugami,vitcugama;
+	double vitrugami,vitrugama;
+	double vitpugami,vitpugama;
+
+	void write_to_file();
 	
 };
 #endif

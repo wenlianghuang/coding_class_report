@@ -45,11 +45,12 @@ void final_project()
 	E.Landau_distribution_sort();
     E.Exp_distribution_sort();
 	EA.Buying_People_Decay_Graph();
-	cout << "flag1" <<endl;
 	E.Buying_People_Decay_each_region();
 	E.BPD_sorting();
 	E.Show_ProfD0();
 	E.Show_ProfD1();
+	E.Sort_for_Uniform_distribution_Rand();
+	E.write_to_file();
 	int n_bin = (*(E.itsma)-E.vitsmi)/200.0;
 	int g_bin = (*(E.itsnma)-E.vitsnmi)/200.0;
 	int l_bin = (*(E.itslma)-E.vitslmi)/200.0;

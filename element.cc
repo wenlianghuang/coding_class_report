@@ -7,6 +7,10 @@
 #include<algorithm>
 #define sdup 0.05
 #include<math.h>
+#include<fstream>
+#include<cstring>
+#include<sstream>
+using namespace std;
 TRandom3 rnd(1234);
 
 Element::Element(double Leads_per_Month,double Cost_per_Lead,double Conversion_Rate,double Profit_per_Sale,double Overhead_per_Month)
@@ -178,12 +182,10 @@ void Element::Uniform_distribution_sort()
 {
     sort(vec_ProfU.begin(),vec_ProfU.end());
     itsumi = vec_ProfU.begin();
-    //std::cout<<(*itsumi)<<std::endl;
     vitsumi = *(itsumi);
-    //std::cout<<vitsumi<<std::endl;
     reverse(vec_ProfU.begin(),vec_ProfU.end());
     itsuma = vec_ProfU.begin();
-    //std::cout<<(*itsuma)<<std::endl;
+
 }
 
 void Element::Gaus_distribution_sort()
@@ -318,4 +320,62 @@ void Element::Show_ProfD1()
     std::cout<<"***************The end************************" <<std::endl;
 }
 
-//
+void Element::Sort_for_Uniform_distribution_Rand()
+{
+	sort(vec_LU.begin(),vec_LU.end());
+	itlugami = vec_LU.begin();
+	vitlugami = *(itlugami);
+	reverse(vec_LU.begin(),vec_LU.end());
+	itlugama = vec_LU.begin();
+	vitlugama = *(itlugama);
+
+	sort(vec_CU.begin(),vec_CU.end());
+    itcugami = vec_CU.begin();
+    vitcugami = *(itcugami);
+    reverse(vec_CU.begin(),vec_CU.end());
+    itcugama = vec_CU.begin();
+    vitcugama = *(itcugama);
+
+	sort(vec_RU.begin(),vec_RU.end());
+    itrugami = vec_RU.begin();
+    vitrugami = *(itrugami);
+    reverse(vec_RU.begin(),vec_RU.end());
+    itrugama = vec_RU.begin();
+    vitrugama = *(itrugama);
+
+	sort(vec_PU.begin(),vec_PU.end());
+    itpugami = vec_PU.begin();
+    vitpugami = *(itpugami);
+    reverse(vec_PU.begin(),vec_PU.end());
+    itpugama = vec_PU.begin();
+    vitpugama = *(itpugama);
+
+
+
+}
+void Element::write_to_file()
+{
+	fstream file;
+
+	file.open("/home/wenliang/coding_class_report/Store_the_Max_Min_value.txt",ios::out|ios::trunc);
+	file<<vitlugama<<endl;
+	file<<vitlugami<<endl;
+	file<<L<<endl;
+	
+	file<<vitcugama<<endl;
+    file<<vitcugami<<endl;
+	file<<C<<endl;
+	
+	file<<vitrugama<<endl;
+    file<<vitrugami<<endl;
+	file<<R<<endl;
+
+	file<<vitpugama<<endl;
+    file<<vitpugami<<endl;
+	file<<P<<endl;
+	
+	file.close();
+}
+	
+
+	
