@@ -55,29 +55,64 @@ void final_project()
 	int g_bin = (*(E.itsnma)-E.vitsnmi)/200.0;
 	int l_bin = (*(E.itslma)-E.vitslmi)/200.0;
     int u_bin = (*(E.itsuma)-E.vitsumi)/200.0;
-    TH1D *f1 = new TH1D("f1","f1",n_bin,(E.vitsmi),*(E.itsma));
+    TH1D *f1 = new TH1D("f1","No_distri",n_bin,(E.vitsmi),*(E.itsma));
     for(std::vector<double>::iterator it = E.vec_Prof.begin();it!=E.vec_Prof.end();it++)
     f1->Fill(*it);
 	f1->SetFillColor(28);
+    f1->SetXTitle("TWD");
+    f1->GetXaxis()->SetTitleOffset(1.2);
+    f1->GetXaxis()->SetTitleSize(0.04);
+    f1->SetYTitle("Events");
+    f1->GetYaxis()->SetTitleOffset(1.4);
+    f1->GetXaxis()->SetTitleSize(0.04);
     //hs->Add(f1);
-	TH1D *f2 = new TH1D("f2","f2",g_bin,(E.vitsnmi),*(E.itsnma));
+	TH1D *f2 = new TH1D("f2","Gaus_distri",g_bin,(E.vitsnmi),*(E.itsnma));
 	for(std::vector<double>::iterator it2 = E.vec_ProfN.begin();it2!=E.vec_ProfN.end();it2++)
   	f2->Fill(*it2);
 	f2->SetFillColor(kGreen);
+    f2->SetXTitle("TWD");
+    f2->GetXaxis()->SetTitleOffset(1.2);
+    f2->GetXaxis()->SetTitleSize(0.04);
+    f2->SetYTitle("Events");
+    f2->GetYaxis()->SetTitleOffset(1.4);
+    f2->GetXaxis()->SetTitleSize(0.04);
+
+
     //hs->Add(f2);
-	TH1D *f3 = new TH1D("f3","f3",500,(E.vitslmi),80000);
+	TH1D *f3 = new TH1D("f3","Landau_distrib",500,(E.vitslmi),80000);
 	for(std::vector<double>::iterator it3 = E.vec_ProfP.begin();it3!=E.vec_ProfP.end();it3++)
 	f3->Fill(*it3);
 	f3->SetFillColor(6);
-    TH1D *f4 = new TH1D("f4","f4",500,(E.vitsemi),*(E.itsema));
+    f3->SetXTitle("TWD");
+    f3->GetXaxis()->SetTitleOffset(1.2);
+    f3->GetXaxis()->SetTitleSize(0.06);
+    f3->SetYTitle("Events");
+    f3->GetYaxis()->SetTitleOffset(1.4);
+    f3->GetXaxis()->SetTitleSize(0.04);
+
+    TH1D *f4 = new TH1D("f4","Exp_distrib",500,(E.vitsemi),*(E.itsema));
     for(std::vector<double>::iterator it4 = E.vec_ProfE.begin();it4!=E.vec_ProfE.end();it4++)
     f4->Fill(*it4);
     f4->SetFillColor(29);
+    f4->SetXTitle("TWD");
+    f4->GetXaxis()->SetTitleOffset(1.2);
+    f4->GetXaxis()->SetTitleSize(0.04);
+    f4->SetYTitle("Events");
+    f4->GetYaxis()->SetTitleOffset(1.4);
+    f4->GetXaxis()->SetTitleSize(0.04);
+
 	//hs->Add(f3);
-    TH1D *f5 = new TH1D("f5","f5",500,(E.vitsumi),*(E.itsuma));
+    TH1D *f5 = new TH1D("f5","Unif_distrib",500,(E.vitsumi),*(E.itsuma));
     for(std::vector<double>::iterator it5 = E.vec_ProfU.begin();it5!=E.vec_ProfU.end();it5++)
     f5->Fill(*it5);
     f5->SetFillColor(29);
+    f5->SetXTitle("TWD");
+    f5->GetXaxis()->SetTitleOffset(1.2);
+    f5->GetXaxis()->SetTitleSize(0.04);
+    f5->SetYTitle("Events");
+    f5->GetYaxis()->SetTitleOffset(1.4);
+    f5->GetXaxis()->SetTitleSize(0.04);
+ 
 	TCanvas *cs = new TCanvas("cs","cs",700,900);
 	cs->Divide(3,2);
 	//cs->cd(1); hs->Draw();
@@ -108,39 +143,79 @@ void final_project()
 	TGraph *g1 = new TGraph(6,day,nbpa);
 	g1->SetMarkerColor(kRed);
 	g1->SetMarkerStyle(20);
+    g1->GetXaxis()->SetTitle("date");
+    g1->GetYaxis()->SetTitle("People");
+    g1->GetYaxis()->SetTitleOffset(1.4);
 	
 	TCanvas *cs2 = new TCanvas("cs2","cs2",700,900);
 	cs2->cd(1);g1->Draw("AP");
 
-	TH1D *fdr0 = new TH1D("fdr0","fdr0",bpd0_bin,E.vitsbpdmi0,*(E.itbpdsma0));
+	TH1D *fdr0 = new TH1D("fdr0","Date1",bpd0_bin,E.vitsbpdmi0,*(E.itbpdsma0));
 	for(std::vector<double>::iterator itdr0=E.nbpder_Prof0.begin();itdr0!=E.nbpder_Prof0.end();itdr0++)
 	fdr0->Fill(*itdr0);
 	fdr0->SetFillColor(kBlue);
+    fdr0->SetXTitle("TWD");
+    fdr0->GetXaxis()->SetTitleOffset(1.2);
+    fdr0->GetXaxis()->SetTitleSize(0.04);
+    fdr0->SetYTitle("People");
+    fdr0->GetYaxis()->SetTitleOffset(1.4);
+    fdr0->GetYaxis()->SetTitleSize(0.04);
 
-	TH1D *fdr1 = new TH1D("fdr1","fdr1",bpd1_bin,E.vitsbpdmi1,*(E.itbpdsma1));
+	TH1D *fdr1 = new TH1D("fdr1","Date7",bpd1_bin,E.vitsbpdmi1,*(E.itbpdsma1));
     for(std::vector<double>::iterator itdr1=E.nbpder_Prof1.begin();itdr1!=E.nbpder_Prof1.end();itdr1++)
     fdr1->Fill(*itdr1);
     fdr1->SetFillColor(2);
+    fdr1->SetXTitle("TWD");
+    fdr1->GetXaxis()->SetTitleOffset(1.2);
+    fdr1->GetXaxis()->SetTitleSize(0.04);
+    fdr1->SetYTitle("People");
+    fdr1->GetYaxis()->SetTitleOffset(1.4);
+    fdr1->GetYaxis()->SetTitleSize(0.04);
+
 	
-	TH1D *fdr2 = new TH1D("fdr2","fdr2",bpd2_bin,E.vitsbpdmi2,*(E.itbpdsma2));
+	TH1D *fdr2 = new TH1D("fdr2","Date13",bpd2_bin,E.vitsbpdmi2,*(E.itbpdsma2));
     for(std::vector<double>::iterator itdr2=E.nbpder_Prof2.begin();itdr2!=E.nbpder_Prof2.end();itdr2++)
     fdr2->Fill(*itdr2);
     fdr2->SetFillColor(3);
+    fdr2->SetXTitle("TWD");
+    fdr2->GetXaxis()->SetTitleOffset(1.2);
+    fdr2->GetXaxis()->SetTitleSize(0.04);
+    fdr2->SetYTitle("People");
+    fdr2->GetYaxis()->SetTitleOffset(1.4);
+    fdr2->GetYaxis()->SetTitleSize(0.04);
 
-	TH1D *fdr3 = new TH1D("fdr3","fdr3",bpd3_bin,E.vitsbpdmi3,*(E.itbpdsma3));
+	TH1D *fdr3 = new TH1D("fdr3","Date19",bpd3_bin,E.vitsbpdmi3,*(E.itbpdsma3));
     for(std::vector<double>::iterator itdr3=E.nbpder_Prof3.begin();itdr3!=E.nbpder_Prof3.end();itdr3++)
     fdr3->Fill(*itdr3);
     fdr3->SetFillColor(5);
-	
-	TH1D *fdr4 = new TH1D("fdr4","fdr4",bpd4_bin,E.vitsbpdmi4,*(E.itbpdsma4));
+	fdr3->SetXTitle("TWD");
+    fdr3->GetXaxis()->SetTitleOffset(1.2);
+    fdr3->GetXaxis()->SetTitleSize(0.04);
+    fdr3->SetYTitle("People");
+    fdr3->GetYaxis()->SetTitleOffset(1.4);
+    fdr3->GetYaxis()->SetTitleOffset(0.04);
+
+	TH1D *fdr4 = new TH1D("fdr4","Date25",bpd4_bin,E.vitsbpdmi4,*(E.itbpdsma4));
     for(std::vector<double>::iterator itdr4=E.nbpder_Prof4.begin();itdr4!=E.nbpder_Prof4.end();itdr4++)
     fdr4->Fill(*itdr4);
     fdr4->SetFillColor(9);
+    fdr4->SetXTitle("TWD");
+    fdr4->GetXaxis()->SetTitleOffset(1.2);
+    fdr4->GetXaxis()->SetTitleSize(0.04);
+    fdr4->SetYTitle("People");
+    fdr4->GetYaxis()->SetTitleOffset(1.4);
+    fdr4->GetYaxis()->SetTitleSize(0.04);
 
-	TH1D *fdr5 = new TH1D("fdr5","fdr5",bpd5_bin,E.vitsbpdmi5,*(E.itbpdsma5));
+	TH1D *fdr5 = new TH1D("fdr5","Date31",bpd5_bin,E.vitsbpdmi5,*(E.itbpdsma5));
     for(std::vector<double>::iterator itdr5=E.nbpder_Prof5.begin();itdr5!=E.nbpder_Prof5.end();itdr5++)
     fdr5->Fill(*itdr5);
     fdr5->SetFillColor(kBlue);
+    fdr5->SetXTitle("TWD");
+    fdr5->GetXaxis()->SetTitleOffset(1.2);
+    fdr5->GetXaxis()->SetTitleSize(0.04);
+    fdr5->SetYTitle("People");
+    fdr5->GetYaxis()->SetTitleOffset(1.4);
+    fdr5->GetYaxis()->SetTitleSize(0.04);
 
 	TCanvas *cs3 = new TCanvas("cs3","cs3",700,900);
 	cs3->Divide(3,2);
